@@ -29,10 +29,15 @@ a:hover {
 }
 
 body {
+    font-family: 'Open Sans', sans-serif;
     width: 100vw;
     padding: 20px;
     min-width: 320px;
     min-height: 100vh;
+}
+
+h1, h2 {
+    font-weight: 500;
 }
 
 h1 {
