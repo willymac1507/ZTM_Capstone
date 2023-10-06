@@ -4,8 +4,9 @@ import {
     signInWithGooglePopup
 } from '../../utils/firebase/firebase.utils';
 import { FormInput } from '../form-input/FormInput';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Swal from 'sweetalert2';
+import { UserContext } from '../../contexts/UserContext';
 
 const defaultFormFields = {
     email: '',
@@ -21,6 +22,8 @@ export const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { email, password } = formFields;
 
+    const { setCurrentUser } = useContext(UserContext);
+
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormFields({ ...formFields, [name]: value });
@@ -30,7 +33,8 @@ export const SignInForm = () => {
         event.preventDefault();
         try {
             const { user } = await signInAuthUserWithEmailAndPassword(email, password);
-            console.log(user);
+            setCurrentUser(user);
+            resetForm();
         } catch (e) {
             if (e.code === 'auth/invalid-login-credentials') {
                 await Swal.fire({
