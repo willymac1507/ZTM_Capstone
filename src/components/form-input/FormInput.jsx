@@ -3,9 +3,7 @@ export const FormInput = (props) => {
     return (
         <>
             <div className="mb-6">
-                <label className="block mb-2 uppercase text-xs text-gray-700"
-                       htmlFor="{inputName}"
-                >
+                <label className="block mb-2 uppercase text-xs text-gray-700">
                     {inputText}
                 </label>
 

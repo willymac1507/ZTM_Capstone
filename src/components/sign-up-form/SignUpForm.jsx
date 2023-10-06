@@ -54,13 +54,13 @@ export const SignUpForm = () => {
     return (
         <>
             <div className={'p-24'}>
-                <h1 className={'text-4xl mb-12 text-center'}>Sign up with your email and password</h1>
+                <h1 className={'text-4xl mb-3 text-center'}>Don't have an account?</h1>
+                <h3 className="text-lg mb-8 text-center">Register with an email and password</h3>
                 <div className={'flex justify-center mt-7'}>
                     <div className={'w-72'}>
                         <form action="#" onSubmit={handleSubmit}>
                             <FormInput inputText={'Display Name'}
                                        name="displayName"
-                                       id="displayName"
                                        value={displayName}
                                        type="text"
                                        onChange={handleChange}/>
